@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\collegeEventTracker2.props" />
+</Project>

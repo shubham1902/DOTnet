@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\collegeEventTracker2.props" />
+</Project>
