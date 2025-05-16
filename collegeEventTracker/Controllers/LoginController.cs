@@ -81,7 +81,7 @@ namespace collegeEventTracker2.Controllers
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
         [HttpPost("register")]
-        public IActionResult Register([FromBody] User newUser)
+        public IActionResult Register([FromBody] Users newUser)
         {
             if (newUser == null)
                 return BadRequest("User data is null.");
@@ -96,8 +96,8 @@ namespace collegeEventTracker2.Controllers
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@username", newUser.username);
                     cmd.Parameters.AddWithValue("@password", newUser.password); // Plaintext
-                   // cmd.Parameters.AddWithValue("@role", newUser.Role ?? "User"); // default to "User"
-                   // cmd.Parameters.AddWithValue("@email", newUser.email);
+                   cmd.Parameters.AddWithValue("@role", newUser.Role ?? "User"); // default to "User"
+                   cmd.Parameters.AddWithValue("@email", newUser.email);
                     cmd.ExecuteNonQuery();
 
                     return Ok(new { message = "User registered successfully" });
